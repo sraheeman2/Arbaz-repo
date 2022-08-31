@@ -5,3 +5,22 @@ i have two siblings
 echo "enter name"
 read=name
 
+apiVersion:v1
+kind:ReplicationController
+metadata:
+ name:nginx-rc
+spec:
+ replicas:2
+ selector:
+  app:nginx
+template:
+ metadata:
+  name:nginx
+  labels:
+    app:nginx
+ spec:
+  containers:
+   -name:nginx
+    image:nginx
+    ports:
+     -containerport:80
